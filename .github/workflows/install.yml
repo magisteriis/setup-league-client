@@ -1,0 +1,23 @@
+name: CI
+on:
+  schedule:
+    - cron:  '0 12 * * *'
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+jobs:
+  install:
+    name: Install League of Legends
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+        name: Checkout
+
+      - name: Install League of Legends
+        uses: mikaeldui/install-league-of-legends@v1
+        with:
+          username: ${{ secrets.LOL_USERNAME }}
+          password: ${{ secrets.LOL_PASSWORD }}
+          region: ${{ secrets.LOL_REGION }}
