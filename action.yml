@@ -1,0 +1,31 @@
+name: 'Install League of Legends' 
+description: 'Installs the latest version of League of Legends'
+author: 'Mikael Dúi Bolinder'
+branding:
+  icon: 'award'  
+  color: 'green'
+inputs:
+  username:
+    description: 'The username of a  League of Legends account'
+    required: true
+    type: string
+  password:
+    description: 'The password for the League of Legends account'
+    required: true
+    type: string
+
+runs:
+  using: "composite"
+  steps:  
+    - name: "Ensure it's running on Windows"
+      if: ${{ runner.os != 'Windows' }}
+      uses: actions/github-script@v3
+      with:
+        script: core.setFailed('This action only supports Windows!')
+  
+    - name: Install League of Legends
+      shell: pwsh
+      run: .\Install-LeagueOfLegends.ps1
+      env:
+        LOL_USERNAME: ${{ inputs.username }}
+        LOL_PASSWORD: ${{ inputs.password }}
