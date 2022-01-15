@@ -14,7 +14,7 @@ inputs:
     required: true
     type: string
   region:
-    description: 'The League of Legends region, e.g. "na".
+    description: 'The League of Legends region, e.g. "na".'
     required: true
     type: string
 
