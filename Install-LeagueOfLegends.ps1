@@ -154,7 +154,7 @@ Try {
 
     # Login to RCS to start the LCU.
     Write-Host 'Logging into RCS, starts LCU.'
-    Invoke-RiotRequest $RCS_LOCKFILE '/rso-auth/v1/authorization/gas' 'POST' "{'username':'$env:LOL_USERNAME', 'password':'$env:LOL_PASSWORD'}" | Out-Null
+    Invoke-RiotRequest $RCS_LOCKFILE '/rso-auth/v1/authorization/gas' 'POST' "{""username"":""$env:LOL_USERNAME"", ""password"":""$env:LOL_PASSWORD""}" | Out-Null
 
     # Wait for LCU to update itself.
     Start-Sleep 5
