@@ -13,6 +13,10 @@ inputs:
     description: 'The password for the League of Legends account'
     required: true
     type: string
+  region:
+    description: 'The League of Legends region, e.g. "na".
+    required: true
+    type: string
 
 runs:
   using: "composite"
@@ -29,3 +33,4 @@ runs:
       env:
         LOL_USERNAME: ${{ inputs.username }}
         LOL_PASSWORD: ${{ inputs.password }}
+        LOL_REGION: ${{ inputs.region }}
