@@ -98,7 +98,7 @@ If (-Not (Test-Path $LCU_EXE)) {
     $attempts = 5
     While ($True) {
         Try {
-            Invoke-WebRequest 'https://lol.secure.dyn.riotcdn.net/channels/public/x/installer/current/live.na.exe' -OutFile 'install.na.exe'
+            Invoke-WebRequest 'https://lol.secure.dyn.riotcdn.net/channels/public/x/installer/current/live.${LOL_REGION}.exe' -OutFile 'install.${LOL_REGION}.exe'
             Break
         }
         Catch {
@@ -110,7 +110,7 @@ If (-Not (Test-Path $LCU_EXE)) {
             Start-Sleep 5
         }
     }
-    .\install.na.exe --skip-to-install
+    .\install.${LOL_REGION}.exe --skip-to-install
 
     # RCS starts, but install of LoL hangs, possibly due to .NET Framework 3.5 missing.
     # So we restart it and then it works.
