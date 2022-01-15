@@ -110,7 +110,7 @@ If (-Not (Test-Path $LCU_EXE)) {
             Start-Sleep 5
         }
     }
-    .\install.$env:LOL_REGION.exe --skip-to-install
+    & ".\install.$env:LOL_REGION.exe --skip-to-install"
 
     # RCS starts, but install of LoL hangs, possibly due to .NET Framework 3.5 missing.
     # So we restart it and then it works.
