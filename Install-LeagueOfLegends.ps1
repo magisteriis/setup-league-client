@@ -98,7 +98,7 @@ If (-Not (Test-Path $LCU_EXE)) {
     $attempts = 5
     While ($True) {
         Try {
-            Invoke-WebRequest "https://lol.secure.dyn.riotcdn.net/channels/public/x/installer/current/live.${LOL_REGION}.exe" -OutFile "install.${LOL_REGION}.exe"
+            Invoke-WebRequest "https://lol.secure.dyn.riotcdn.net/channels/public/x/installer/current/live.$env:LOL_REGION.exe" -OutFile "install.$env:LOL_REGION.exe"
             Break
         }
         Catch {
@@ -110,7 +110,7 @@ If (-Not (Test-Path $LCU_EXE)) {
             Start-Sleep 5
         }
     }
-    .\install.$LOL_REGION.exe --skip-to-install
+    .\install.$env:LOL_REGION.exe --skip-to-install
 
     # RCS starts, but install of LoL hangs, possibly due to .NET Framework 3.5 missing.
     # So we restart it and then it works.
@@ -153,7 +153,7 @@ Try {
 
     # Login to RCS to start the LCU.
     Write-Host 'Logging into RCS, starts LCU.'
-    Invoke-RiotRequest $RCS_LOCKFILE '/rso-auth/v1/authorization/gas' 'POST' "{'username':'${LOL_USERNAME}', 'password':'${LOL_PASSWORD}'}" | Out-Null
+    Invoke-RiotRequest $RCS_LOCKFILE '/rso-auth/v1/authorization/gas' 'POST' "{'username':'$env:LOL_USERNAME', 'password':'$env:LOL_PASSWORD'}" | Out-Null
 
     # Wait for LCU to update itself.
     Start-Sleep 5
