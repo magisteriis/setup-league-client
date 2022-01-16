@@ -1,4 +1,5 @@
 # Setup League Client
+[![Daily Test (cbe136c)](https://github.com/mikaeldui/setup-league-client/actions/workflows/daily-test.cbe136c.yml/badge.svg)](https://github.com/mikaeldui/setup-league-client/actions/workflows/daily-test.cbe136c.yml)
 [![Main Branch Tests](https://github.com/mikaeldui/setup-league-client/actions/workflows/main.yml/badge.svg)](https://github.com/mikaeldui/setup-league-client/actions/workflows/main.yml)
 
 ![image](https://user-images.githubusercontent.com/3706841/149665686-368d3e10-f5cb-4459-8647-0a2021394027.png)
@@ -13,7 +14,7 @@ The setup takes around 5-10 minutes.
 
     - name: Setup League Client
       id: league-client
-      uses: mikaeldui/setup-league-client@v1
+      uses: mikaeldui/setup-league-client@cbe136c775c4bbfadfd0bcd65f3810ddb90168bd
       with:
         username: ${{ secrets.LOL_USERNAME }}
         password: ${{ secrets.LOL_PASSWORD }}
@@ -26,6 +27,17 @@ The setup takes around 5-10 minutes.
         LCU_PASSWORD: ${{ steps.league-client.outputs.lcu-password }}
         LCU_PORT: ${{ steps.league-client.outputs.lcu-port }}
         LCU_DIR: ${{ steps.league-client.output.lcu-directory }}
+        
+## Questions
+
+### Why is the action referenced using a commit hash?
+It's the most secure way to reference a commit.
+
+### Why isn't the region a secret in the example?
+The region is being output in the action logs. I haven't found a good way to sensor it since it's also being output in base64. The locale (e.g. en_US) is also being output.
+
+### What is an LCU password?
+It's the password used when establishing either an HTTPS or a WSS connection to the LCU. It changed everytime the League Client is restarted. Since the League Client can only be access from the local machine (or runner) under normal circumstances it's safe to display and good for debugging purposes.
 
 ## Thanks
 
