@@ -1,4 +1,4 @@
-name: Main Branch Tests
+name: Daily Test (@main)
 on:
   schedule:
     - cron:  '0 12 * * *'
