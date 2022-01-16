@@ -24,8 +24,8 @@ SOFTWARE.
 
 #requires -PSEdition Core
 
-$REGION_LOWER = $env:LCU_REGION.ToLower()
-$REGION_UPPER = $env:LCU_REGION.ToUpper()
+$REGION_LOWER = $env:LOL_REGION.ToLower()
+$REGION_UPPER = $env:LOL_REGION.ToUpper()
 
 # Config.
 $RCS_LOCKFILE = "$env:LOCALAPPDATA\Riot Games\Riot Client\Config\lockfile"
