@@ -19,7 +19,7 @@ jobs:
 
       - name: Setup the League Client
         id: league-client
-        uses: actions/setup-league-client@main
+        uses: mikaeldui/setup-league-client@main
         with:
           username: ${{ secrets.LOL_USERNAME }}
           password: ${{ secrets.LOL_PASSWORD }}
