@@ -37,7 +37,7 @@ runs:
       with:
         script: core.setFailed('This action must be run on Windows!')
   
-    - name: Install League of Legends
+    - name: Setup League Client
       id: windows
       shell: pwsh
       run: '& $env:GITHUB_ACTION_PATH/Setup-LeagueClient.ps1'
