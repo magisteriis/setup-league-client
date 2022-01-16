@@ -13,7 +13,7 @@ The setup takes around 5-10 minutes.
 
     - name: Setup League Client
       id: league-client
-      uses: mikaeldui/setup-league-client@ INSERT COMMIT HASH
+      uses: mikaeldui/setup-league-client@COMMIT HASH
       with:
         username: ${{ secrets.LOL_USERNAME }}
         password: ${{ secrets.LOL_PASSWORD }}
