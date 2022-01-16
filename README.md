@@ -26,7 +26,7 @@ The setup takes around 5-10 minutes.
       env:
         LCU_PASSWORD: ${{ steps.league-client.outputs.lcu-password }}
         LCU_PORT: ${{ steps.league-client.outputs.lcu-port }}
-        LCU_DIR: ${{ steps.league-client.output.lcu-directory }}
+        LCU_DIR: ${{ steps.league-client.outputs.lcu-directory }}
         
 ## Questions
 
