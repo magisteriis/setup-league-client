@@ -18,6 +18,7 @@ jobs:
     steps:
 
       - name: Setup the League Client
+        id: league-client
         uses: mikaeldui/setup-league-client@main
         with:
           username: ${{ secrets.LOL_USERNAME }}
