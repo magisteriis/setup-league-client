@@ -18,7 +18,8 @@ An action for setting up the League of Legends client (a.k.a. League Client/LCU)
         region: ${{ secrets.LOL_REGION }}
         
     - name: Test LCU Integration
-      run: .\tests.sh
+      run: .\tests.ps1
+      shell: pwsh
       env:
         LCU_PASSWORD: ${{ steps.league-client.outputs.lcu-password }}
         LCU_PORT: ${{ steps.league-client.outputs.lcu-port }}
