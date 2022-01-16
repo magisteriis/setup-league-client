@@ -13,3 +13,7 @@ An action for installing the League of Legends client (a.k.a. LCU). Good for tes
         username: ${{ secrets.LOL_USERNAME }}
         password: ${{ secrets.LOL_PASSWORD }}
         region: ${{ secrets.LOL_REGION }}        
+
+## Thanks
+
+Thanks to [MingweiSamuel](https://github.com/MingweiSamuel) for his [lcu-schema/update.ps1](https://github.com/MingweiSamuel/lcu-schema/blob/a309d795ddf0eba093cb6a6f54ffa9238e947f3a/update.ps1).
