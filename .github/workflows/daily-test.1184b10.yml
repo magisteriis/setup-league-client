@@ -1,8 +1,9 @@
 name: Daily Test (@1184b10)
 on:
   schedule:
-    - cron:  '0 13 * * *'
+    - cron:  '0 12 * * *'
   workflow_dispatch:
+concurrency: lol
 jobs:
   install:
     name: Test the action
