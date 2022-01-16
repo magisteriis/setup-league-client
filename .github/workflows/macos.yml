@@ -1,23 +1,24 @@
-name: Development Branches
+name: macOS
 on:
-  push:
-    branches-ignore: [ main, features/macos ]
-    paths:
-     - 'Windows/Setup-LeagueClient.ps1'
-     - '.github/workflows/local.yml'
-     - 'action.yml'
-  pull_request:
-    branches-ignore: [ main, features/macos ]
-    paths:
-     - 'Windows/Setup-LeagueClient.ps1'
-     - '.github/workflows/local.yml'
-     - 'action.yml'
+#  push:
+#    branches: [ features/macos ]
+#    paths:
+#     - 'macOS/setup-leagueclient.sh'
+#     - '.github/workflows/linux.yml'
+#     - 'action.yml'
+#  pull_request:
+#    branches: [ features/macos ]
+#    paths:
+#     - 'macOS/setup-leagueclient.sh'
+#     - '.github/workflows/linux.yml'
+#     - 'action.yml'
   workflow_dispatch:
 concurrency: lol
 jobs:
   install:
-    name: Test the action
-    runs-on: windows-latest
+    name: Test on macOS
+    runs-on: macos-latest
+    timeout-minutes: 10
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
