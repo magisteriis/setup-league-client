@@ -7,6 +7,8 @@ An action for setting up the League of Legends client (a.k.a. League Client/LCU)
 
 **The action requires a Windows runner.**
 
+The setup takes around 5-10 minutes.
+
 ## Example
 
     - name: Setup League Client
