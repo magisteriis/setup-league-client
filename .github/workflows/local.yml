@@ -1,4 +1,4 @@
-name: Test with local action
+name: Development Branches
 on:
   push:
     branches-ignore: [ main ]
