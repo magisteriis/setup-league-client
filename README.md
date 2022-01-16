@@ -17,7 +17,7 @@ The setup takes around 5-10 minutes.
       with:
         username: ${{ secrets.LOL_USERNAME }}
         password: ${{ secrets.LOL_PASSWORD }}
-        region: ${{ secrets.LOL_REGION }}
+        region: EUW
         
     - name: Test LCU Integration
       run: .\tests.ps1
