@@ -1,5 +1,5 @@
 # Setup League Client
-[![Daily Test (1184b10)](https://github.com/mikaeldui/setup-league-client/actions/workflows/daily-test.1184b10.yml/badge.svg)](https://github.com/mikaeldui/setup-league-client/actions/workflows/daily-test.1184b10.yml)
+[![Daily Test (@1184b10)](https://github.com/mikaeldui/setup-league-client/actions/workflows/daily-test.1184b10.yml/badge.svg)](https://github.com/mikaeldui/setup-league-client/actions/workflows/daily-test.1184b10.yml)
 [![Daily Test (@v1)](https://github.com/mikaeldui/setup-league-client/actions/workflows/daily-test.v1.yml/badge.svg)](https://github.com/mikaeldui/setup-league-client/actions/workflows/daily-test.v1.yml)
 [![Daily Test (@main)](https://github.com/mikaeldui/setup-league-client/actions/workflows/main.yml/badge.svg)](https://github.com/mikaeldui/setup-league-client/actions/workflows/main.yml)
 
