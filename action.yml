@@ -1,22 +1,32 @@
 name: 'Install League of Legends' 
-description: 'Installs the latest version of League of Legends'
+description: 'Installs the latest version of the League of Legends client.'
 author: 'Mikael Dúi Bolinder'
 branding:
   icon: 'award'  
   color: 'green'
 inputs:
   username:
-    description: 'The username of a  League of Legends account'
+    description: 'The username of a  League of Legends account.'
     required: true
     type: string
   password:
-    description: 'The password for the League of Legends account'
+    description: 'The password for the League of Legends account.'
     required: true
     type: string
   region:
     description: 'The League of Legends region, e.g. "na".'
     required: true
     type: string
+outputs:
+  lcu-password:
+    description: 'The League Client session password. NOT your account password.'
+    value: ${{ windows.outputs.lcu-password }}
+  lcu-port:
+    description: 'The League Client port. Used for communcating with it using HTTPS/WSS.'
+    value: ${{ windows.outputs.lcu-port }}
+  lcu-path:
+    description: 'The installation path.'
+    value: ${{ windows.outputs.lcu-path }}
 
 runs:
   using: "composite"
@@ -28,6 +38,7 @@ runs:
         script: core.setFailed('This action only supports Windows!')
   
     - name: Install League of Legends
+      id: windows
       shell: pwsh
       run: .\Install-LeagueOfLegends.ps1
       env:
