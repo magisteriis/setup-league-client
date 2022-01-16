@@ -102,7 +102,8 @@ If (-Not (Test-Path $LCU_EXE)) {
     $attempts = 5
     While ($True) {
         Try {
-            Invoke-WebRequest "https://lol.secure.dyn.riotcdn.net/channels/public/x/installer/current/live.$REGION_LOWER.exe" -OutFile "install.$REGION_LOWER.exe"
+            Invoke-WebRequest "https://lol.secure.dyn.riotcdn.net/channels/public/x/installer/current/live.$REGION_LOWER.exe" -OutFile "install.$REGION_LOWER.exe" `
+                -UserAgent "GitHubActions (Windows; +https://github.com/mikaeldui/setup-league-client) PowerShell"
             Break
         }
         Catch {
