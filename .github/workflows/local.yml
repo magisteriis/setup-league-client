@@ -6,10 +6,14 @@ on:
     branches-ignore: [ main ]
     paths:
      - 'Windows/Setup-LeagueClient.ps1'
+     - '.github/worksflows/local.yml'
+     - 'action.yml'
   pull_request:
     branches-ignore: [ main ]
     paths:
      - 'Windows/Setup-LeagueClient.ps1'
+     - '.github/worksflows/local.yml'
+     - 'action.yml'
   workflow_dispatch:
 jobs:
   install:
