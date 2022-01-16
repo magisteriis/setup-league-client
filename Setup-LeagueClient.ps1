@@ -185,6 +185,6 @@ $port = $lockContent[2];
 $pass = $lockContent[3];
 Write-Host "::set-output name=lcu-password::$pass"
 Write-Host "::set-output name=lcu-port::$port"
-Write-Host "::set-output name=lcu-path::$LCU_PATH"
+Write-Host "::set-output name=lcu-directory::$LCU_DIR"
 
 Write-Host 'Success!'
