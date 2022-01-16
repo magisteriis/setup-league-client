@@ -36,12 +36,13 @@ runs:
       uses: actions/github-script@v3
       with:
         script: core.setFailed('This action must be run on Windows!')
-  
+
     - name: Setup League Client on Windows
-      if: ${{ runner.os == 'Windows' }}      
+      if: ${{ runner.os == 'Windows' }}
       id: windows
-      uses: ./Windows
-      with:
-        username: ${{ inputs.username }}
-        password: ${{ inputs.password }}
-        region: ${{ inputs.region }}
+      shell: pwsh
+      run: '& $env:GITHUB_ACTION_PATH/Windows/Setup-LeagueClient.ps1'
+      env:
+        LOL_USERNAME: ${{ inputs.username }}
+        LOL_PASSWORD: ${{ inputs.password }}
+        LOL_REGION: ${{ inputs.region }}
