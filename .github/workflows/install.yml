@@ -4,8 +4,12 @@ on:
     - cron:  '0 12 * * *'
   push:
     branches: [ main ]
+    paths:
+     - './Install-LeagueClient.ps1'
   pull_request:
     branches: [ main ]
+    paths:
+     - './Install-LeagueClient.ps1'
   workflow_dispatch:
 jobs:
   install:
