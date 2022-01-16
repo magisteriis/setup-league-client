@@ -179,7 +179,7 @@ Try {
 
 }
 
-$lockContent = Get-Content $lockfile -Raw
+$lockContent = Get-Content $LCU_LOCKFILE -Raw
 $lockContent = $lockContent.Split(':')
 $port = $lockContent[2];
 $pass = $lockContent[3];
