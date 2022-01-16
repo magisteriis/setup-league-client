@@ -30,7 +30,7 @@ The setup takes around 5-10 minutes.
         
 ## Questions
 
-### Why is the action referenced using a commit hash?
+### Why is the action referenced using a commit?
 It's the most [secure and stable](https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#example-using-versioned-actions) way to reference an action as tags can be moved.
 
 ### Why isn't the region a secret in the example?
