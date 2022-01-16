@@ -1,4 +1,4 @@
-name: 'Install League of Legends' 
+name: 'Setup League Client' 
 description: 'Installs the latest version of the League of Legends client.'
 author: 'Mikael Dúi Bolinder'
 branding:
@@ -6,7 +6,7 @@ branding:
   color: 'yellow'
 inputs:
   username:
-    description: 'The username of a  League of Legends account.'
+    description: 'The username of a League of Legends account.'
     required: true
     type: string
   password:
@@ -14,19 +14,19 @@ inputs:
     required: true
     type: string
   region:
-    description: 'The League of Legends region, e.g. "na".'
+    description: 'The region of the League of Legends account, e.g. "NA".'
     required: true
     type: string
 outputs:
   lcu-password:
-    description: 'The League Client session password. NOT your account password.'
+    description: "The League Client Session Password. It's NOT your account password."
     value: ${{ steps.windows.outputs.lcu-password }}
   lcu-port:
-    description: 'The League Client port. Used for communcating with it using HTTPS/WSS.'
+    description: 'The League Client Port. Used for communicating with it using HTTPS/WSS.'
     value: ${{ steps.windows.outputs.lcu-port }}
-  lcu-path:
-    description: 'The installation path.'
-    value: ${{ steps.windows.outputs.lcu-path }}
+  lcu-directory:
+    description: 'The League Client Installation Directory.'
+    value: ${{ steps.windows.outputs.lcu-directory }}
 
 runs:
   using: "composite"
@@ -35,7 +35,7 @@ runs:
       if: ${{ runner.os != 'Windows' }}
       uses: actions/github-script@v3
       with:
-        script: core.setFailed('This action only supports Windows!')
+        script: core.setFailed('This action must be run on Windows!')
   
     - name: Install League of Legends
       id: windows
