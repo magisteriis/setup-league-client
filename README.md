@@ -1,5 +1,5 @@
 # Setup League Client
-[![CI](https://github.com/mikaeldui/install-league-of-legends/actions/workflows/install.yml/badge.svg)](https://github.com/mikaeldui/install-league-of-legends/actions/workflows/install.yml)
+[![Daily Test](https://github.com/mikaeldui/setup-league-client/actions/workflows/action-test.yml/badge.svg)](https://github.com/mikaeldui/setup-league-client/actions/workflows/action-test.yml)
 
 ![image](https://user-images.githubusercontent.com/3706841/149665686-368d3e10-f5cb-4459-8647-0a2021394027.png)
 
