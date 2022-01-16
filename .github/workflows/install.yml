@@ -20,7 +20,7 @@ jobs:
         name: Checkout
 
       - name: Install League of Legends
-        uses: mikaeldui/install-league-of-legends@main
+        uses: mikaeldui/setup-league-client@main
         with:
           username: ${{ secrets.LOL_USERNAME }}
           password: ${{ secrets.LOL_PASSWORD }}
