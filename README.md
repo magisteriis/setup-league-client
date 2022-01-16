@@ -23,7 +23,6 @@ An action for setting up the League of Legends client (a.k.a. League Client/LCU)
       env:
         LCU_PASSWORD: ${{ steps.league-client.outputs.lcu-password }}
         LCU_PORT: ${{ steps.league-client.outputs.lcu-port }}
-        LCU_PATH: ${{ steps.league-client.outputs.lcu-path }}
 
 ## Thanks
 
