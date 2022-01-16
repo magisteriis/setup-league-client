@@ -36,6 +36,7 @@ $RCS_ARGS = '--launch-product=league_of_legends', '--launch-patchline=live', "--
 $LCU_DIR = 'C:\Riot Games\League of Legends'
 $LCU_LOCKFILE = "$LCU_DIR\lockfile"
 $LCU_EXE = "$LCU_DIR\LeagueClient.exe"
+$LCU-args = "--region=$REGION_UPPER"
 
 $LOL_INSTALL_ID = 'league_of_legends.live'
 
@@ -149,7 +150,7 @@ Else {
 
 # Start RCS.
 Write-Host 'Starting RCS (via LCU).'
-& $LCU_EXE
+& $LCU_EXE $LCU_ARGS
 Start-Sleep 5 # Wait for RCS to load so it doesn't overwrite system.yaml.
 
 Try {
