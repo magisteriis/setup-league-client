@@ -25,8 +25,11 @@ The setup takes around 5-10 minutes.
       env:
         LCU_PASSWORD: ${{ steps.league-client.outputs.lcu-password }}
         LCU_PORT: ${{ steps.league-client.outputs.lcu-port }}
-        LCU_PATH: ${{ steps.league-client.output.lcu-path }}
+        LCU_DIR: ${{ steps.league-client.output.lcu-directory }}
 
 ## Thanks
 
 Thanks to [@MingweiSamuel](https://github.com/MingweiSamuel) for his [lcu-schema/update.ps1](https://github.com/MingweiSamuel/lcu-schema/blob/a309d795ddf0eba093cb6a6f54ffa9238e947f3a/update.ps1) (licensed under the [MIT license](https://github.com/MingweiSamuel/lcu-schema/blob/a309d795ddf0eba093cb6a6f54ffa9238e947f3a/LICENSE).
+
+## Notice from Riot Games, Inc.
+The GitHub Action "Setup League Client" by [@mikaeldui](https://github.com/mikaeldui) isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.
