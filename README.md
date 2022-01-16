@@ -37,11 +37,11 @@ It's the most [secure and stable](https://docs.github.com/en/actions/learn-githu
 The region is being output in the action logs. I haven't found a good way to sensor it since it's also being output in base64. The locale (e.g. en_US) is also being output.
 
 ### What is an LCU password?
-It's the password used when establishing either an HTTPS or a WSS connection to the LCU. It changed everytime the League Client is restarted. Since the League Client can only be access from the local machine (or runner) under normal circumstances it's safe to display and good for debugging purposes.
+It's the password used when establishing either an HTTPS or a WSS connection to the LCU. It changes everytime the League Client is restarted. Since the League Client can only be accessed from the local machine (or runner) under normal circumstances it's safe to display and good for debugging purposes.
 
 ## Thanks
 
 Thanks to [@MingweiSamuel](https://github.com/MingweiSamuel) for his [lcu-schema/update.ps1](https://github.com/MingweiSamuel/lcu-schema/blob/a309d795ddf0eba093cb6a6f54ffa9238e947f3a/update.ps1) (licensed under the [MIT license](https://github.com/MingweiSamuel/lcu-schema/blob/a309d795ddf0eba093cb6a6f54ffa9238e947f3a/LICENSE).
 
 ## Notice from Riot Games, Inc.
-The GitHub Action "Setup League Client" by [@mikaeldui](https://github.com/mikaeldui) isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.
+The GitHub Action "[Setup League Client](https://github.com/marketplace/actions/setup-league-client)" by [@mikaeldui](https://github.com/mikaeldui) isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.
