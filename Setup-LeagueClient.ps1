@@ -40,10 +40,6 @@ $LCU_ARGS = "--region=$REGION_UPPER"
 
 $LOL_INSTALL_ID = 'league_of_legends.live'
 
-#If (-Not (Test-Path $LOGIN_FILE)) {
-#    Throw "Login not found: $LOGIN_FILE."
-#}
-
 function Stop-RiotProcesses {
     # Stop any existing processes.
     Stop-Process -Name 'RiotClientUx' -ErrorAction Ignore
@@ -180,7 +176,15 @@ Try {
         Start-Sleep 20
     }
 } Finally {
-    Stop-RiotProcesses
+
 }
+
+$lockContent = Get-Content $lockfile -Raw
+$lockContent = $lockContent.Split(':')
+$port = $lockContent[2];
+$pass = $lockContent[3];
+Write-Host "::set-output name=lcu-password::$pass"
+Write-Host "::set-output name=lcu-port::$port"
+Write-Host "::set-output name=lcu-path::$LCU_PATH"
 
 Write-Host 'Success!'
