@@ -1,4 +1,4 @@
-name: Daily Test (cbe136c)
+name: Daily Test (1184b10)
 on:
   schedule:
     - cron:  '0 12 * * *'
@@ -11,7 +11,7 @@ jobs:
 
       - name: Setup the League Client
         id: league-client
-        uses: mikaeldui/setup-league-client@cbe136c775c4bbfadfd0bcd65f3810ddb90168bd
+        uses: mikaeldui/setup-league-client@1184b10f0dcab538f165e15e2b1b88aa73566f15
         with:
           username: ${{ secrets.LOL_USERNAME }}
           password: ${{ secrets.LOL_PASSWORD }}
