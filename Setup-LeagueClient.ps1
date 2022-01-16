@@ -36,7 +36,7 @@ $RCS_ARGS = '--launch-product=league_of_legends', '--launch-patchline=live', "--
 $LCU_DIR = 'C:\Riot Games\League of Legends'
 $LCU_LOCKFILE = "$LCU_DIR\lockfile"
 $LCU_EXE = "$LCU_DIR\LeagueClient.exe"
-$LCU-args = "--region=$REGION_UPPER"
+$LCU_ARGS = "--region=$REGION_UPPER"
 
 $LOL_INSTALL_ID = 'league_of_legends.live'
 
