@@ -40,7 +40,7 @@ runs:
     - name: Install League of Legends
       id: windows
       shell: pwsh
-      run: .\Install-LeagueOfLegends.ps1
+      run: .\Setup-LeagueClient.ps1
       env:
         LOL_USERNAME: ${{ inputs.username }}
         LOL_PASSWORD: ${{ inputs.password }}
