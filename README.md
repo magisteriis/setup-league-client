@@ -31,7 +31,7 @@ The setup takes around 5-10 minutes.
 ## Questions
 
 ### Why is the action referenced using a commit hash?
-It's the most secure way to reference an action as tags can be moved.
+It's the most secure and stable way to reference an action as tags can be moved.
 
 ### Why isn't the region a secret in the example?
 The region is being output in the action logs. I haven't found a good way to sensor it since it's also being output in base64. The locale (e.g. en_US) is also being output.
