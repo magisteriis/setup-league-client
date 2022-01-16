@@ -24,11 +24,14 @@ SOFTWARE.
 
 #requires -PSEdition Core
 
+$REGION_LOWER = $env:LCU_REGION.ToLower()
+$REGION_UPPER = $env:LCU_REGION.ToUpper()
+
 # Config.
 $RCS_LOCKFILE = "$env:LOCALAPPDATA\Riot Games\Riot Client\Config\lockfile"
 $RCS_DIR = "C:\Riot Games\Riot Client"
 $RCS_EXE = "$RCS_DIR\RiotClientServices.exe"
-$RCS_ARGS = '--launch-product=league_of_legends', '--launch-patchline=live'
+$RCS_ARGS = '--launch-product=league_of_legends', '--launch-patchline=live', "--region=$REGION_UPPER"
 
 $LCU_DIR = 'C:\Riot Games\League of Legends'
 $LCU_LOCKFILE = "$LCU_DIR\lockfile"
@@ -98,7 +101,7 @@ If (-Not (Test-Path $LCU_EXE)) {
     $attempts = 5
     While ($True) {
         Try {
-            Invoke-WebRequest "https://lol.secure.dyn.riotcdn.net/channels/public/x/installer/current/live.$env:LOL_REGION.exe" -OutFile "install.$env:LOL_REGION.exe"
+            Invoke-WebRequest "https://lol.secure.dyn.riotcdn.net/channels/public/x/installer/current/live.$REGION_LOWER.exe" -OutFile "install.$env:REGION_LOWER.exe"
             Break
         }
         Catch {
@@ -111,7 +114,7 @@ If (-Not (Test-Path $LCU_EXE)) {
         }
     }
     
-    Invoke-Expression ".\install.$env:LOL_REGION.exe --skip-to-install"
+    Invoke-Expression ".\install.$REGION_LOWER.exe --skip-to-install"
 
     # RCS starts, but install of LoL hangs, possibly due to .NET Framework 3.5 missing.
     # So we restart it and then it works.
