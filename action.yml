@@ -2,8 +2,8 @@ name: 'Install League of Legends'
 description: 'Installs the latest version of the League of Legends client.'
 author: 'Mikael Dúi Bolinder'
 branding:
-  icon: 'award'  
-  color: 'green'
+  icon: 'trending-up'  
+  color: 'yellow'
 inputs:
   username:
     description: 'The username of a  League of Legends account.'
