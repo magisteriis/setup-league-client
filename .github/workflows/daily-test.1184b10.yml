@@ -1,4 +1,4 @@
-name: Daily Test (1184b10)
+name: Daily Test (@1184b10)
 on:
   schedule:
     - cron:  '0 13 * * *'
