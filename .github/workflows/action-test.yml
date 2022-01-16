@@ -13,11 +13,9 @@ on:
   workflow_dispatch:
 jobs:
   install:
-    name: Install League of Legends
+    name: Test the action
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v2
-        name: Checkout
 
       - name: Install League of Legends
         uses: mikaeldui/setup-league-client@main
