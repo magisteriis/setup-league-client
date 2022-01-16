@@ -1,4 +1,4 @@
-<# Source: https://github.com/MingweiSamuel/lcu-schema/blob/a309d795ddf0eba093cb6a6f54ffa9238e947f3a/update.ps1
+<# Modified version of: https://github.com/MingweiSamuel/lcu-schema/blob/a309d795ddf0eba093cb6a6f54ffa9238e947f3a/update.ps1
 MIT License
 
 Copyright (c) 2019 Mingwei Samuel
