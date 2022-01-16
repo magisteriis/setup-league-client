@@ -1,7 +1,5 @@
 name: Test with local action
 on:
-  schedule:
-    - cron:  '0 12 * * *'
   push:
     branches-ignore: [ main ]
     paths:
