@@ -1,0 +1,26 @@
+name: Daily Test (ec79155)
+on:
+  schedule:
+    - cron:  '0 12 * * *'
+  workflow_dispatch:
+jobs:
+  install:
+    name: Test the action
+    runs-on: windows-latest
+    steps:
+
+      - name: Setup the League Client
+        id: league-client
+        uses: mikaeldui/setup-league-client@ec79155dfe0b73946a8a57f1f9704f762a9bd50a
+        with:
+          username: ${{ secrets.LOL_USERNAME }}
+          password: ${{ secrets.LOL_PASSWORD }}
+          region: ${{ secrets.LOL_REGION }}
+
+      - name: Test outputs
+        uses: actions/github-script@v5
+        with:
+          script: |
+            "${{ steps.league-client.outputs.lcu-password }}".length === 0 && core.setFailed("No LCU Password Output");
+            "${{ steps.league-client.outputs.lcu-port }}".length === 0 && core.setFailed("No LCU Port Output");
+            "${{ steps.league-client.outputs.lcu-path }}".length === 0 && core.setFailed("No LCU Path Output");
