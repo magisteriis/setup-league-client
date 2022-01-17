@@ -127,7 +127,7 @@ If (-Not (Test-Path $LCU_EXE)) {
         }
     }
 
-    bash -c "export DISPLAY=:0 &% wine $INSTALLER_EXE --skip-to-install"
+    bash -c "export DISPLAY=:0 && wine $INSTALLER_EXE --skip-to-install"
 
     # RCS starts, but install of LoL hangs, possibly due to .NET Framework 3.5 missing.
     # So we restart it and then it works.
@@ -135,7 +135,7 @@ If (-Not (Test-Path $LCU_EXE)) {
     Stop-RiotProcesses
 
     Write-Host 'Restarting RCS'
-    bash -c "export DISPLAY=:0 &% wine $RCS_EXE $RCS_ARGS"
+    bash -c "export DISPLAY=:0 && wine $RCS_EXE $RCS_ARGS"
     Start-Sleep 5
 
     $attempts = 15
