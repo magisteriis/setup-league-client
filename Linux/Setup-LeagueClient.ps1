@@ -91,7 +91,7 @@ function Invoke-RiotRequest {
 # Stop any existing processes.
 Stop-RiotProcesses
 
-& bash "$env:GITHUB_ACTION_PATH/Linux/Setup-Wine.sh"
+bash -c "$env:GITHUB_ACTION_PATH/Linux/Setup-Wine.sh"
 
 # Install League if not installed.
 If (-Not (Test-Path $LCU_EXE)) {
@@ -113,7 +113,7 @@ If (-Not (Test-Path $LCU_EXE)) {
         }
     }
     
-    & bash "/usr/bin/wine-stable $INSTALLER_EXE --skip-to-install"
+    bash -c "wine $INSTALLER_EXE --skip-to-install"
 
     # RCS starts, but install of LoL hangs, possibly due to .NET Framework 3.5 missing.
     # So we restart it and then it works.
@@ -121,7 +121,7 @@ If (-Not (Test-Path $LCU_EXE)) {
     Stop-RiotProcesses
 
     Write-Host 'Restarting RCS'
-    & bash "/usr/bin/wine-stable $env:RCS_EXE $RCS_ARGS"
+    bash -c "wine $env:RCS_EXE $RCS_ARGS"
     Start-Sleep 5
 
     $attempts = 15
@@ -148,7 +148,7 @@ Else {
 
 # Start RCS.
 Write-Host 'Starting RCS (via LCU).'
-& bash "/usr/bin/wine-stable $LCU_EXE $LCU_ARGS"
+bash -c "wine $LCU_EXE $LCU_ARGS"
 Start-Sleep 5 # Wait for RCS to load so it doesn't overwrite system.yaml.
 
 Start-Sleep 5
