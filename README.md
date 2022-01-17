@@ -1,5 +1,5 @@
 # Setup League Client
-[![Daily Test (@1184b10)](https://github.com/mikaeldui/setup-league-client/actions/workflows/daily-test.1184b10.yml/badge.svg)](https://github.com/mikaeldui/setup-league-client/actions/workflows/daily-test.1184b10.yml)
+[![Daily Test (@ea5ea07)](https://github.com/mikaeldui/setup-league-client/actions/workflows/daily-test.ea5ea07.yml/badge.svg)](https://github.com/mikaeldui/setup-league-client/actions/workflows/daily-test.ea5ea07.yml)
 [![Daily Test (@v1)](https://github.com/mikaeldui/setup-league-client/actions/workflows/daily-test.v1.yml/badge.svg)](https://github.com/mikaeldui/setup-league-client/actions/workflows/daily-test.v1.yml)
 [![Daily Test (@main)](https://github.com/mikaeldui/setup-league-client/actions/workflows/main.yml/badge.svg)](https://github.com/mikaeldui/setup-league-client/actions/workflows/main.yml)
 
@@ -15,7 +15,7 @@ The setup takes around 5-10 minutes.
 
     - name: Setup League Client
       id: league-client
-      uses: mikaeldui/setup-league-client@1184b10f0dcab538f165e15e2b1b88aa73566f15
+      uses: mikaeldui/setup-league-client@ea5ea0748d459cb8e4bade9d50d2f81b70f009f7
       with:
         username: ${{ secrets.LOL_USERNAME }}
         password: ${{ secrets.LOL_PASSWORD }}
