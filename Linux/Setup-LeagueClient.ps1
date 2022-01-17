@@ -97,13 +97,15 @@ function Invoke-RiotRequest {
 Stop-RiotProcesses
 
 Invoke-WebRequest "https://m-reimer.de/wine-lol/debian/wine-lol_5.18-1_i386.deb" -OutFile "$env:RUNNER_TEMP/wine-lol.deb"
+Invoke-WebRequest "https://m-reimer.de/wine-lol/debian/wine-lol-glibc_2.33-1_i386.deb" -OutFile "$env:RUNNER_TEMP/wine-lol-glibc.deb"
 
 sudo dpkg -i "$env:RUNNER_TEMP/wine-lol.deb"
+sudo dpkg -i "$env:RUNNER_TEMP/wine-lol-glibs.deb"
 sudo apt-get install -f
 
 bash -c "Xvfb :0 -screen 0 1280x1024x24 > /dev/null 2>&1 & disown"
 
-bash -c "export DISPLAY=:0 & $env:GITHUB_ACTION_PATH/Linux/Setup-Wine.sh"
+bash -c "export DISPLAY=:0 && $env:GITHUB_ACTION_PATH/Linux/Setup-Wine.sh"
 
 # Install League if not installed.
 If (-Not (Test-Path $LCU_EXE)) {
@@ -125,7 +127,7 @@ If (-Not (Test-Path $LCU_EXE)) {
         }
     }
 
-    bash -c "export DISPLAY=:0 & wine $INSTALLER_EXE --skip-to-install"
+    bash -c "export DISPLAY=:0 &% wine $INSTALLER_EXE --skip-to-install"
 
     # RCS starts, but install of LoL hangs, possibly due to .NET Framework 3.5 missing.
     # So we restart it and then it works.
@@ -133,7 +135,7 @@ If (-Not (Test-Path $LCU_EXE)) {
     Stop-RiotProcesses
 
     Write-Host 'Restarting RCS'
-    bash -c "export DISPLAY=:0 & wine $RCS_EXE $RCS_ARGS"
+    bash -c "export DISPLAY=:0 &% wine $RCS_EXE $RCS_ARGS"
     Start-Sleep 5
 
     $attempts = 15
@@ -160,7 +162,7 @@ Else {
 
 # Start RCS.
 Write-Host 'Starting RCS (via LCU).'
-bash -c "export DISPLAY=:0 & wine $LCU_EXE $LCU_ARGS"
+bash -c "export DISPLAY=:0 && wine $LCU_EXE $LCU_ARGS"
 Start-Sleep 5 # Wait for RCS to load so it doesn't overwrite system.yaml.
 
 Start-Sleep 5
