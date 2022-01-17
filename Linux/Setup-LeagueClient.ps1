@@ -100,6 +100,7 @@ Invoke-WebRequest "https://m-reimer.de/wine-lol/debian/wine-lol_5.18-1_i386.deb"
 Invoke-WebRequest "https://m-reimer.de/wine-lol/debian/wine-lol-glibc_2.33-1_i386.deb" -OutFile "$env:RUNNER_TEMP/wine-lol-glibc.deb"
 
 sudo dpkg --add-architecture i386
+sudo apt update > /dev/null
 sudo apt install "$env:RUNNER_TEMP/wine-lol.deb"
 sudo apt install "$env:RUNNER_TEMP/wine-lol-glibc.deb"
 
@@ -140,6 +141,7 @@ If (-Not (Test-Path $LCU_EXE)) {
 
     $attempts = 15
     While ($True) {
+        bash -c "ls /home/runner/.local/share/leagueoflegends/drive_c/Users"
         $status = Invoke-RiotRequest $RCS_LOCKFILE "/patch/v1/installs/$LOL_INSTALL_ID/status"
         If ('up_to_date' -Eq $status.patch.state) {
             Break
