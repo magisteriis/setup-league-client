@@ -27,11 +27,15 @@ SOFTWARE.
 $REGION_LOWER = $env:LOL_REGION.ToLower()
 $REGION_UPPER = $env:LOL_REGION.ToUpper()
 
+$WINEPREFIX="$HOME/.local/share/leagueoflegends"
+$RCS_DIR="$WINEPREFIX/drive_c/Riot Games"
+$RCS_EXE="$RCS_DIR/Riot Client/RiotClientServices.exe"
+
 # Config.
 $RCS_LOCKFILE = "$env:LOCALAPPDATA\Riot Games\Riot Client\Config\lockfile"
 $RCS_ARGS = "--launch-product=league_of_legends --launch-patchline=live --region=$REGION_UPPER"
 
-$LCU_DIR = "$env:RCS_DIR\League of Legends"
+$LCU_DIR = "$RCS_DIR\League of Legends"
 $LCU_LOCKFILE = "$LCU_DIR\lockfile"
 $LCU_EXE = "$LCU_DIR\LeagueClient.exe"
 $LCU_ARGS = "--region=$REGION_UPPER"
@@ -123,7 +127,7 @@ If (-Not (Test-Path $LCU_EXE)) {
     Stop-RiotProcesses
 
     Write-Host 'Restarting RCS'
-    bash -c "wine $env:RCS_EXE $RCS_ARGS"
+    bash -c "wine $RCS_EXE $RCS_ARGS"
     Start-Sleep 5
 
     $attempts = 15
