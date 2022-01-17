@@ -96,9 +96,9 @@ function Invoke-RiotRequest {
 # Stop any existing processes.
 Stop-RiotProcesses
 
-& bash "nohup Xvfb :0 -screen 0 1280x1024x24 > /dev/null 2>&1 & disown"
+bash -c "Xvfb :0 -screen 0 1280x1024x24 > /dev/null 2>&1 & disown"
 
-bash -c "export DISPLAY=:1 & $env:GITHUB_ACTION_PATH/Linux/Setup-Wine.sh"
+bash -c "export DISPLAY=:0 & $env:GITHUB_ACTION_PATH/Linux/Setup-Wine.sh"
 
 # Install League if not installed.
 If (-Not (Test-Path $LCU_EXE)) {
