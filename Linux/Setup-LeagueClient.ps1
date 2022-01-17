@@ -100,6 +100,7 @@ Invoke-WebRequest "https://m-reimer.de/wine-lol/debian/wine-lol-glibc_2.33-1_i38
 Invoke-WebRequest "https://m-reimer.de/wine-lol/debian/wine-lol_5.18-1_i386.deb" -OutFile "$env:RUNNER_TEMP/wine-lol.deb"
 
 sudo dpkg --add-architecture i386
+sudo apt-add-repository "ppa:ondrej/php" -y # See https://github.com/actions/virtual-environments/issues/3339
 sudo apt update > /dev/null
 sudo apt install "$env:RUNNER_TEMP/wine-lol-glibc.deb"
 sudo apt install "$env:RUNNER_TEMP/wine-lol.deb"
@@ -107,6 +108,7 @@ sudo apt install "$env:RUNNER_TEMP/wine-lol.deb"
 bash -c "Xvfb :0 -screen 0 1280x1024x24 > /dev/null 2>&1 & disown"
 
 bash -c "export DISPLAY=:0 && $env:GITHUB_ACTION_PATH/Linux/Setup-Wine.sh"
+
 
 # Install League if not installed.
 If (-Not (Test-Path $LCU_EXE)) {
