@@ -96,7 +96,7 @@ function Invoke-RiotRequest {
 # Stop any existing processes.
 Stop-RiotProcesses
 
-& bash "nohup Xvfb :1 -screen 0 1280x1024x24 > /dev/null 2>&1 &"
+& bash "nohup Xvfb :0 -screen 0 1280x1024x24 > /dev/null 2>&1 & disown"
 
 bash -c "export DISPLAY=:1 & $env:GITHUB_ACTION_PATH/Linux/Setup-Wine.sh"
 
@@ -120,7 +120,7 @@ If (-Not (Test-Path $LCU_EXE)) {
         }
     }
 
-    bash -c "export DISPLAY=:1 & wine $INSTALLER_EXE --skip-to-install"
+    bash -c "export DISPLAY=:0 & wine $INSTALLER_EXE --skip-to-install"
 
     # RCS starts, but install of LoL hangs, possibly due to .NET Framework 3.5 missing.
     # So we restart it and then it works.
@@ -128,7 +128,7 @@ If (-Not (Test-Path $LCU_EXE)) {
     Stop-RiotProcesses
 
     Write-Host 'Restarting RCS'
-    bash -c "export DISPLAY=:1 & wine $RCS_EXE $RCS_ARGS"
+    bash -c "export DISPLAY=:0 & wine $RCS_EXE $RCS_ARGS"
     Start-Sleep 5
 
     $attempts = 15
@@ -155,7 +155,7 @@ Else {
 
 # Start RCS.
 Write-Host 'Starting RCS (via LCU).'
-bash -c "export DISPLAY=:1 & wine $LCU_EXE $LCU_ARGS"
+bash -c "export DISPLAY=:0 & wine $LCU_EXE $LCU_ARGS"
 Start-Sleep 5 # Wait for RCS to load so it doesn't overwrite system.yaml.
 
 Start-Sleep 5
