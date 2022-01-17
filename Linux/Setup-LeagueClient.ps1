@@ -96,13 +96,13 @@ function Invoke-RiotRequest {
 # Stop any existing processes.
 Stop-RiotProcesses
 
-Invoke-WebRequest "https://m-reimer.de/wine-lol/debian/wine-lol_5.18-1_i386.deb" -OutFile "$env:RUNNER_TEMP/wine-lol.deb"
 Invoke-WebRequest "https://m-reimer.de/wine-lol/debian/wine-lol-glibc_2.33-1_i386.deb" -OutFile "$env:RUNNER_TEMP/wine-lol-glibc.deb"
+Invoke-WebRequest "https://m-reimer.de/wine-lol/debian/wine-lol_5.18-1_i386.deb" -OutFile "$env:RUNNER_TEMP/wine-lol.deb"
 
 sudo dpkg --add-architecture i386
 sudo apt update > /dev/null
-sudo apt install "$env:RUNNER_TEMP/wine-lol.deb"
 sudo apt install "$env:RUNNER_TEMP/wine-lol-glibc.deb"
+sudo apt install "$env:RUNNER_TEMP/wine-lol.deb"
 
 bash -c "Xvfb :0 -screen 0 1280x1024x24 > /dev/null 2>&1 & disown"
 
