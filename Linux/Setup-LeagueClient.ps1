@@ -96,7 +96,7 @@ function Invoke-RiotRequest {
 # Stop any existing processes.
 Stop-RiotProcesses
 
-& bash "Xvfb :1 -screen 0 1280x1024x24"
+& bash "nohup Xvfb :1 -screen 0 1280x1024x24 > /dev/null 2>&1 &"
 
 bash -c "export DISPLAY=:1 & $env:GITHUB_ACTION_PATH/Linux/Setup-Wine.sh"
 
