@@ -20,22 +20,32 @@ inputs:
 outputs:
   lcu-password:
     description: "The League Client Session Password. It's NOT your account password."
-    value: ${{ steps.windows.outputs.lcu-password }}
+    value: ${{ steps.linux.outputs.lcu-password }}${{ steps.windows.outputs.lcu-password }}
   lcu-port:
     description: 'The League Client Port. Used for communicating with it using HTTPS/WSS.'
-    value: ${{ steps.windows.outputs.lcu-port }}
+    value: ${{ steps.linux.outputs.lcu-port }}${{ steps.windows.outputs.lcu-port }}
   lcu-directory:
     description: 'The League Client Installation Directory.'
-    value: ${{ steps.windows.outputs.lcu-directory }}
+    value: ${{ steps.linux.outputs.lcu-directory }}${{ steps.windows.outputs.lcu-directory }}
 
 runs:
   using: "composite"
   steps:  
     - name: "Ensure it's running on Windows"
-      if: ${{ runner.os != 'Windows' }}
+      if: ${{ runner.os != 'Windows' && runner.os != 'Linux' }}
       uses: actions/github-script@v3
       with:
-        script: core.setFailed('This action must be run on Windows!')
+        script: core.setFailed('This action must be run on Linux or Windows!')
+        
+    - name: Setup League Client on Linux
+      if: ${{ runner.os == 'Linux' }}
+      id: linux
+      shell: pwsh
+      run: '& $env:GITHUB_ACTION_PATH/Linux/Setup-LeagueClient.ps1'
+      env:
+        LOL_USERNAME: ${{ inputs.username }}
+        LOL_PASSWORD: ${{ inputs.password }}
+        LOL_REGION: ${{ inputs.region }}
 
     - name: Setup League Client on Windows
       if: ${{ runner.os == 'Windows' }}

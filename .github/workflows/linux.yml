@@ -1,0 +1,42 @@
+name: Linux
+on:
+  push:
+    branches: [ features/linux ]
+    paths:
+      - 'Linux/Setup-LeagueClient.ps1'
+      - 'Linux/Setup-Wine.sh'
+      - '.github/workflows/linux.yml'
+      - 'action.yml'
+  pull_request:
+    branches: [ features/linux ]
+    paths:
+      - 'Linux/Setup-LeagueClient.ps1'
+      - 'Linux/Setup-Wine.sh'
+      - '.github/workflows/linux.yml'
+      - 'action.yml'
+  workflow_dispatch:
+#concurrency: lol
+jobs:
+  install:
+    name: Test on Linux
+    runs-on: ubuntu-latest
+    #timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup the League Client
+        id: league-client
+        uses: ./
+        with:
+          username: ${{ secrets.LOL_USERNAME }}
+          password: ${{ secrets.LOL_PASSWORD }}
+          region: ${{ secrets.LOL_REGION }}
+          
+      - name: Test outputs
+        uses: actions/github-script@v5
+        with:
+          script: |
+            "${{ steps.league-client.outputs.lcu-password }}".length === 0 && core.setFailed("No LCU Password Output");
+            "${{ steps.league-client.outputs.lcu-port }}".length === 0 && core.setFailed("No LCU Port Output");
+            "${{ steps.league-client.outputs.lcu-directory }}".length === 0 && core.setFailed("No LCU Directory Output");

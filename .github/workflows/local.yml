@@ -1,13 +1,13 @@
 name: Development Branches
 on:
   push:
-    branches-ignore: [ main ]
+    branches-ignore: [ main, features/linux ]
     paths:
      - 'Windows/Setup-LeagueClient.ps1'
      - '.github/workflows/local.yml'
      - 'action.yml'
   pull_request:
-    branches-ignore: [ main ]
+    branches-ignore: [ main, features/linux ]
     paths:
      - 'Windows/Setup-LeagueClient.ps1'
      - '.github/workflows/local.yml'
