@@ -92,12 +92,10 @@ function Invoke-RiotRequest {
     }
 }
 
-& bash "Xvfb :1"
-
 # Stop any existing processes.
 Stop-RiotProcesses
 
-bash -c "DISPLAY=:1 & $env:GITHUB_ACTION_PATH/Linux/Setup-Wine.sh"
+bash -c "xvfb-run $env:GITHUB_ACTION_PATH/Linux/Setup-Wine.sh"
 
 # Install League if not installed.
 If (-Not (Test-Path $LCU_EXE)) {
@@ -119,7 +117,7 @@ If (-Not (Test-Path $LCU_EXE)) {
         }
     }
 
-    bash -c "DISPLAY=:1 & wine $INSTALLER_EXE --skip-to-install"
+    bash -c "xvfb-run wine $INSTALLER_EXE --skip-to-install"
 
     # RCS starts, but install of LoL hangs, possibly due to .NET Framework 3.5 missing.
     # So we restart it and then it works.
@@ -127,7 +125,7 @@ If (-Not (Test-Path $LCU_EXE)) {
     Stop-RiotProcesses
 
     Write-Host 'Restarting RCS'
-    bash -c "DISPLAY=:1 & wine $RCS_EXE $RCS_ARGS"
+    bash -c "xvfb-run wine $RCS_EXE $RCS_ARGS"
     Start-Sleep 5
 
     $attempts = 15
@@ -154,7 +152,7 @@ Else {
 
 # Start RCS.
 Write-Host 'Starting RCS (via LCU).'
-bash -c "DISPLAY=:1 & wine $LCU_EXE $LCU_ARGS"
+bash -c "xvfb-run & wine $LCU_EXE $LCU_ARGS"
 Start-Sleep 5 # Wait for RCS to load so it doesn't overwrite system.yaml.
 
 Start-Sleep 5
