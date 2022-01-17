@@ -88,6 +88,8 @@ function Invoke-RiotRequest {
     }
 }
 
+& bash "Xvfb :1 & export DISPLAY=:1"
+
 # Stop any existing processes.
 Stop-RiotProcesses
 
@@ -112,7 +114,7 @@ If (-Not (Test-Path $LCU_EXE)) {
             Start-Sleep 5
         }
     }
-    
+
     bash -c "wine $INSTALLER_EXE --skip-to-install"
 
     # RCS starts, but install of LoL hangs, possibly due to .NET Framework 3.5 missing.

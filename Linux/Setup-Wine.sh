@@ -38,7 +38,6 @@ check_depends() {
             sudo apt-get install -y $dep > /dev/null
         fi
     done
-    dpkg -L wine
     echo "::endgroup::"
 
     install_winetricks
@@ -113,8 +112,6 @@ create_wineprefix() {
     if [ -e "$WINEPREFIX" ]; then
         die "Wineprefix $WINEPREFIX already exists"
     fi
-
-    Xvfb :1 & export DISPLAY=:1
 
     msg "Creating wineprefix: $WINEPREFIX"
     mkdir -p "$WINEPREFIX"
