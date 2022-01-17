@@ -32,7 +32,7 @@ $RCS_DIR="$WINEPREFIX/drive_c/Riot Games"
 $RCS_EXE="$RCS_DIR/Riot Client/RiotClientServices.exe"
 
 # Config.
-$RCS_LOCKFILE = "$RCS_DIR\Config\lockfile"
+$RCS_LOCKFILE = "$RCS_DIR\Riot Client\Config\lockfile"
 $RCS_ARGS = "--launch-product=league_of_legends --launch-patchline=live --region=$REGION_UPPER"
 
 $LCU_DIR = "$RCS_DIR\League of Legends"
@@ -43,6 +43,7 @@ $LCU_ARGS = "--region=$REGION_UPPER"
 $INSTALLER_EXE = "$env:RUNNER_TEMP/install.$REGION_LOWER.exe"
 
 $LOL_INSTALL_ID = 'league_of_legends.live'
+
 
 function Stop-RiotProcesses {
     # Stop any existing processes.
@@ -95,7 +96,9 @@ function Invoke-RiotRequest {
 # Stop any existing processes.
 Stop-RiotProcesses
 
-bash -c "xvfb-run $env:GITHUB_ACTION_PATH/Linux/Setup-Wine.sh"
+& bash "Xvfb :1 -screen 0 1280x1024x24"
+
+bash -c "$env:GITHUB_ACTION_PATH/Linux/Setup-Wine.sh"
 
 # Install League if not installed.
 If (-Not (Test-Path $LCU_EXE)) {
@@ -117,7 +120,7 @@ If (-Not (Test-Path $LCU_EXE)) {
         }
     }
 
-    bash -c "xvfb-run wine $INSTALLER_EXE --skip-to-install"
+    bash -c "wine $INSTALLER_EXE --skip-to-install"
 
     # RCS starts, but install of LoL hangs, possibly due to .NET Framework 3.5 missing.
     # So we restart it and then it works.
@@ -125,7 +128,7 @@ If (-Not (Test-Path $LCU_EXE)) {
     Stop-RiotProcesses
 
     Write-Host 'Restarting RCS'
-    bash -c "xvfb-run wine $RCS_EXE $RCS_ARGS"
+    bash -c "wine $RCS_EXE $RCS_ARGS"
     Start-Sleep 5
 
     $attempts = 15
@@ -152,7 +155,7 @@ Else {
 
 # Start RCS.
 Write-Host 'Starting RCS (via LCU).'
-bash -c "xvfb-run & wine $LCU_EXE $LCU_ARGS"
+bash -c "wine $LCU_EXE $LCU_ARGS"
 Start-Sleep 5 # Wait for RCS to load so it doesn't overwrite system.yaml.
 
 Start-Sleep 5

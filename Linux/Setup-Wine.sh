@@ -31,7 +31,7 @@ check_depends() {
     sudo apt-add-repository "ppa:ondrej/php" -y # See https://github.com/actions/virtual-environments/issues/3339
     sudo dpkg --add-architecture i386
     sudo apt-get update > /dev/null
-    depends=(wine wine32:i386 wineboot winecfg wineserver curl cabextract)
+    depends=(wine wine32:i386 wineboot winecfg wineserver curl cabextract winbind)
     for dep in ${depends[@]}; do
         if ! command -v "$dep" >/dev/null 2>&1; then
             echo "Missing $dep, installing it..."
