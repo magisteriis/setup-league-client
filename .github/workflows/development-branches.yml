@@ -1,13 +1,12 @@
-name: Daily Test (@main)
+name: Development Branches
 on:
   schedule:
     - cron:  '0 12 * * *'
   push:
-    branches: [ main ]
+    branches-ignore: [ main ]
     paths:
      - 'Windows/Setup-LeagueClient.ps1'
   pull_request:
-    branches: [ main ]
     paths:
      - 'Windows/Setup-LeagueClient.ps1'
   workflow_dispatch:
@@ -17,10 +16,11 @@ jobs:
     name: Test the action
     runs-on: windows-latest
     steps:
+      - uses: actions/checkout@v2
 
       - name: Setup the League Client
         id: league-client
-        uses: mikaeldui/setup-league-client@main
+        uses: ./
         with:
           username: ${{ secrets.LOL_USERNAME }}
           password: ${{ secrets.LOL_PASSWORD }}
