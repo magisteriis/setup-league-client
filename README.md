@@ -31,7 +31,7 @@ The setup takes around 5-10 minutes.
 ## Questions
 
 ### Why is the action referenced using a commit in the example?
-It's the most [secure and stable][actions-reference-commit] way to reference an action as tags can be moved. This specific commit also has daily tests as you can see in the top. You can also reference the action with `@v1` to use any fixes automatically.
+It's the most [secure and stable][actions-reference-commit] way to reference an action as tags can be moved. This specific commit also has daily tests as you can see in the top. If you prefer you can reference the action with `@v1` to use any fixes automatically.
 
 ### Why isn't the region a secret in the example?
 The region is being output in the action logs. I haven't found a good way to mask it since it's also being output in base64. The locale (e.g. en_US) is also being output.
