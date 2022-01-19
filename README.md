@@ -1,7 +1,6 @@
 # Setup League Client
 [![Daily Test (@ea5ea07)](https://github.com/mikaeldui/setup-league-client/actions/workflows/daily-test.ea5ea07.yml/badge.svg)](https://github.com/mikaeldui/setup-league-client/actions/workflows/daily-test.ea5ea07.yml)
 [![Daily Test (@v1)](https://github.com/mikaeldui/setup-league-client/actions/workflows/daily-test.v1.yml/badge.svg)](https://github.com/mikaeldui/setup-league-client/actions/workflows/daily-test.v1.yml)
-[![Daily Test (@main)](https://github.com/mikaeldui/setup-league-client/actions/workflows/main.yml/badge.svg)](https://github.com/mikaeldui/setup-league-client/actions/workflows/main.yml)
 
 ![image](https://user-images.githubusercontent.com/3706841/149665686-368d3e10-f5cb-4459-8647-0a2021394027.png)
 
