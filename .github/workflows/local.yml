@@ -15,9 +15,10 @@ on:
   workflow_dispatch:
 concurrency: lol
 jobs:
-  install:
-    name: Test the action
+  download:
+    name: Test download & setup
     runs-on: windows-latest
+    if: ${{ true == false }}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
@@ -37,3 +38,36 @@ jobs:
           "${{ steps.league-client.outputs.lcu-password }}".length === 0 && core.setFailed("No LCU Password Output");
           "${{ steps.league-client.outputs.lcu-port }}".length === 0 && core.setFailed("No LCU Port Output");
           "${{ steps.league-client.outputs.lcu-directory }}".length === 0 && core.setFailed("No LCU Directory Output");
+          
+  cache:
+    name: Test cache & setup
+    runs-on: windows-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Setup the League Client
+      id: league-client
+      uses: ./
+      with:
+        username: ${{ secrets.LOL_USERNAME }}
+        password: ${{ secrets.LOL_PASSWORD }}
+        region: ${{ secrets.LOL_REGION }}
+        cache: true
+        
+    - name: Test outputs
+      uses: actions/github-script@v5
+      with:
+        script: |
+          "${{ steps.league-client.outputs.lcu-password }}".length === 0 && core.setFailed("No LCU Password Output");
+          "${{ steps.league-client.outputs.lcu-port }}".length === 0 && core.setFailed("No LCU Port Output");
+          "${{ steps.league-client.outputs.lcu-directory }}".length === 0 && core.setFailed("No LCU Directory Output");
+
+    - name: Kill League Client
+      shell: pwsh
+      run: |
+        Stop-Process -Name 'RiotClientUx' -ErrorAction Ignore
+        Stop-Process -Name 'LeagueClient' -ErrorAction Ignore
+        Remove-Item $RCS_LOCKFILE -Force -ErrorAction Ignore
+        Remove-Item $LCU_LOCKFILE -Force -ErrorAction Ignore
+        Start-Sleep 5 # Wait for processes to settle.
