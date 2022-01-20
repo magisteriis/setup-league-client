@@ -68,6 +68,6 @@ jobs:
       run: |
         Stop-Process -Name 'RiotClientUx' -ErrorAction Ignore
         Stop-Process -Name 'LeagueClient' -ErrorAction Ignore
-        Remove-Item $RCS_LOCKFILE -Force -ErrorAction Ignore
-        Remove-Item $LCU_LOCKFILE -Force -ErrorAction Ignore
+        Remove-Item "$env:LOCALAPPDATA\Riot Games\Riot Client\Config\lockfile" -Force -ErrorAction Ignore
+        Remove-Item "C:\Riot Games\League of Legends\lockfile" -Force -ErrorAction Ignore
         Start-Sleep 5 # Wait for processes to settle.
