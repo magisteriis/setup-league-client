@@ -17,6 +17,11 @@ inputs:
     description: 'The region of the League of Legends account, e.g. "NA".'
     required: true
     type: string
+  cache:
+    description: 'Enables caching of the League Client for use in multiple workflow runs.'
+    required: false
+    type: bool
+    default: false
 outputs:
   lcu-password:
     description: "The League Client Session Password. It's NOT your account password."
@@ -36,6 +41,15 @@ runs:
       uses: actions/github-script@v3
       with:
         script: core.setFailed('This action must be run on Windows!')
+        
+    - name: Enable cache
+      if: ${{ runner.os == 'Windows' && inputs.cache }}
+      uses: actions/cache@v2
+      with:
+        path: |
+          C:\Riot Games
+          !C:\Riot Games\League of Legends\Game
+        key: ${{ runner.os }}-mikaeldui-setup-league-client
 
     - name: Setup League Client on Windows
       if: ${{ runner.os == 'Windows' }}
