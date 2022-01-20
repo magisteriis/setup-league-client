@@ -47,8 +47,8 @@ runs:
       uses: actions/cache@v2
       with:
         path: |
-          C:\Riot Games
-          !C:\Riot Games\League of Legends\Game
+          C:\Riot Games\**
+          !C:\Riot Games\League of Legends\Game\**
         key: ${{ runner.os }}-mikaeldui-setup-league-client
 
     - name: Setup League Client on Windows
