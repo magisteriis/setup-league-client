@@ -49,6 +49,7 @@ runs:
         path: |
           C:/Riot Games
           !C:/Riot Games/League of Legends/Game
+          !C:/Riot Games/League of Legends/Plugins/rcp-be-lol-game-data
         key: ${{ runner.os }}-league-client-${{ github.run_id }}-${{ github.run_attempt }}-${{ github.job_id }}
         restore-keys: |
           ${{ runner.os }}-league-client-${{ github.run_id }}-${{ github.run_attempt }}-${{ github.job_id }}
