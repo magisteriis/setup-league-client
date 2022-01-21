@@ -49,7 +49,12 @@ runs:
         path: |
           C:/Riot Games
           !C:/Riot Games/League of Legends/Game
-        key: ${{ runner.os }}-mikaeldui-setup-league-client
+        key: ${{ runner.os }}-league-client-${{ github.run_id }}-${{ github.run_attempt }}-${{ github.job_id }}
+        restore-keys: |
+          ${{ runner.os }}-league-client-${{ github.run_id }}-${{ github.run_attempt }}-${{ github.job_id }}
+          ${{ runner.os }}-league-client-${{ github.run_id }}-${{ github.run_attempt }}-
+          ${{ runner.os }}-league-client-${{ github.run_id }}-
+          ${{ runner.os }}-league-client-
 
     - name: Setup League Client on Windows
       if: ${{ runner.os == 'Windows' }}
