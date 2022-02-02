@@ -1,6 +1,6 @@
 # Setup League Client
-[![Daily Test (@ea5ea07)](https://github.com/mikaeldui/setup-league-client/actions/workflows/daily-test.ea5ea07.yml/badge.svg)](https://github.com/mikaeldui/setup-league-client/actions/workflows/daily-test.ea5ea07.yml)
-[![Daily Test (@v1)](https://github.com/mikaeldui/setup-league-client/actions/workflows/daily-test.v1.yml/badge.svg)](https://github.com/mikaeldui/setup-league-client/actions/workflows/daily-test.v1.yml)
+[![Daily Test (@ea5ea07)](https://github.com/magisteriis/setup-league-client/actions/workflows/daily-test.ea5ea07.yml/badge.svg)](https://github.com/magisteriis/setup-league-client/actions/workflows/daily-test.ea5ea07.yml)
+[![Daily Test (@v1)](https://github.com/magisteriis/setup-league-client/actions/workflows/daily-test.v1.yml/badge.svg)](https://github.com/magisteriis/setup-league-client/actions/workflows/daily-test.v1.yml)
 
 ![image](https://user-images.githubusercontent.com/3706841/149665686-368d3e10-f5cb-4459-8647-0a2021394027.png)
 
@@ -14,7 +14,7 @@ The setup takes around 5-10 minutes.
 
     - name: Setup League Client
       id: league-client
-      uses: mikaeldui/setup-league-client@ea5ea0748d459cb8e4bade9d50d2f81b70f009f7
+      uses: magisteriis/setup-league-client@ea5ea0748d459cb8e4bade9d50d2f81b70f009f7
       with:
         username: ${{ secrets.LOL_USERNAME }}
         password: ${{ secrets.LOL_PASSWORD }}
@@ -44,7 +44,7 @@ It's the password used when establishing either an HTTPS or a WSS connection to 
 Thanks to [@MingweiSamuel](https://github.com/MingweiSamuel) for his [lcu-schema/update.ps1][lcu-schema-update.ps1] (licensed under the [MIT license][lcu-schema-license]).
 
 ## Notice from Riot Games, Inc.
-The GitHub Action "[Setup League Client](https://github.com/marketplace/actions/setup-league-client)" by [@mikaeldui](https://github.com/mikaeldui) isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.
+The GitHub Action "[Setup League Client](https://github.com/marketplace/actions/setup-league-client)" by [@magisteriis](https://github.com/magisteriis) isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.
 
 [actions-reference-commit]: https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsuses
 [lcu-schema-update.ps1]: https://github.com/MingweiSamuel/lcu-schema/blob/a309d795ddf0eba093cb6a6f54ffa9238e947f3a/update.ps1
