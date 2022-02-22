@@ -1,5 +1,5 @@
 name: 'Setup League Client' 
-description: 'Installs the latest version of the League of Legends client.'
+description: 'Installs the latest version of the League of Legends client (LCU).'
 author: 'Mikael Dúi Bolinder'
 branding:
   icon: 'trending-up'  
