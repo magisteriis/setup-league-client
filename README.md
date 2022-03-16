@@ -43,6 +43,11 @@ It's the password used when establishing either an HTTPS or a WSS connection to 
 
 Thanks to [@MingweiSamuel](https://github.com/MingweiSamuel) for his [lcu-schema/update.ps1][lcu-schema-update.ps1] (licensed under the [MIT license][lcu-schema-license]).
 
+### Sponsors
+
+[![Sentry Logo](https://raw.githubusercontent.com/mikaeldui/riot-games-dotnet-client/main/sponsors/sentry.svg)](https://sentry.io/for/good/)
+[![JetBrains Logo (Main) logo](https://raw.githubusercontent.com/mikaeldui/riot-games-dotnet-client/main/sponsors/jetbrains.svg)](https://jb.gg/OpenSourceSupport)
+
 ## Notice from Riot Games, Inc.
 The GitHub Action "[Setup League Client](https://github.com/marketplace/actions/setup-league-client)" by [@magisteriis](https://github.com/magisteriis) isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.
 
