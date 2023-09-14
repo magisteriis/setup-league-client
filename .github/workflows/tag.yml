@@ -11,7 +11,7 @@ jobs:
       name: github-marketplace
       url: 'https://github.com/marketplace/actions/setup-league-client'
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Move the tag to the latest commit on main
         run: |
           git tag --force v1
