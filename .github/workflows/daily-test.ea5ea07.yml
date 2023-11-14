@@ -19,7 +19,7 @@ jobs:
           region: ${{ secrets.LOL_REGION }}
 
       - name: Test outputs
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         with:
           script: |
             "${{ steps.league-client.outputs.lcu-password }}".length === 0 && core.setFailed("No LCU Password Output");
